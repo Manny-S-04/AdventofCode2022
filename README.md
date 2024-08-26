@@ -1,2 +1,2 @@
 # AdventofCode2022
-AdventofCode 2022 in Golang and Javascript
+Will be posting code solutions for adventofcode 2022 here written in Golang (initially) and javascript later
