@@ -11,10 +11,10 @@ import (
 )
 
 func main(){
-    day2Result(day1Result())
+    part2Result(part1Result())
 }
 
-func day2Result(m map[int]int){
+func part2Result(m map[int]int){
     
     values := make([]int,0, len(m))
 
@@ -31,7 +31,7 @@ func day2Result(m map[int]int){
     fmt.Println(result)
 }
 
-func day1Result() map[int]int{
+func part1Result() map[int]int{
     file, err := os.Open("input.txt")
     if err != nil{
         fmt.Println("There was an error opening the file")
