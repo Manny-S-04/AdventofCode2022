@@ -9,7 +9,8 @@ import (
 
 
 func main(){
-    partOneResult()
+    fmt.Println(partOneResult())
+    fmt.Println(partTwoResult())
 }
 
 func partTwoResult() int{
@@ -20,7 +21,7 @@ func partTwoResult() int{
     for i := 0; i < len(rounds)-1; i++ {
         currentRound := rounds[i]
         if currentRound != "0"{
-            totalScore = append(totalScore, evaluateRounds(currentRound))
+            totalScore = append(totalScore, evaluatePartTwoRound(currentRound))
         }
     }
 
@@ -30,10 +31,10 @@ func partTwoResult() int{
 func evaluatePartTwoRound(line string) int{
 
     splitString := strings.Split(line, " ")
-    
-    oppMove := splitString[0]
 
-    myMove := splitString[1]
+    oppMove := strings.TrimSpace(splitString[0])
+
+    myMove := strings.TrimSpace(splitString[1])
 
     var currentScore int
 
@@ -49,6 +50,7 @@ func evaluatePartTwoRound(line string) int{
         case "Z":
             currentScore += 8
             break
+        }
     case "B":
         switch myMove {
         case "X":
@@ -60,6 +62,7 @@ func evaluatePartTwoRound(line string) int{
         case "Z":
             currentScore += 9
             break
+        }
     case "C":
         switch myMove {
         case "X":
@@ -72,9 +75,8 @@ func evaluatePartTwoRound(line string) int{
             currentScore += 7
             break
         }
-        }
-        }
-        }
+    }
+
     return currentScore
 }
 
@@ -113,9 +115,9 @@ func readFile() []string{
 func evaluateRounds(line string) int{
     splitString := strings.Split(line, " ")
     
-    oppMove := splitString[0]
+    oppMove := strings.TrimSpace(splitString[0])
 
-    myMove := splitString[1]
+    myMove := strings.TrimSpace(splitString[1])
 
     var currentScore int
 
